@@ -29,6 +29,11 @@ variable "spiffe_trust_domain" {
   default = "spiffe.cert-manager.io"
 }
 
+variable "aws_region" {
+  type = string
+  description = "AWS region where the AWS account that the Otterize operators will manage resources is in."
+}
+
 variable "aws_rolesanywhere_trust_anchor_name" {
   default = "otterize-cert-manager-spiffe"
 }

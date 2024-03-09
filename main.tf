@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = data.aws_region
+  region = var.aws_region
 }
 
 provider "kubernetes" {

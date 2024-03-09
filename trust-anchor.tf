@@ -18,4 +18,8 @@ resource "aws_rolesanywhere_trust_anchor" "otterize-cert-manager-spiffe-ca" {
     }
     source_type = "CERTIFICATE_BUNDLE"
   }
+  tags = {
+    "otterize/system"      = "true"
+    "otterize/clusterName" = var.cluster_name
+  }
 }

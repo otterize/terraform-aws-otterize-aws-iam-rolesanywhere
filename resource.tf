@@ -244,3 +244,23 @@ resource "aws_iam_role_policy_attachment" "credentials_operator_policy" {
   role       = aws_iam_role.credentials_operator_service_account_role.name
   policy_arn = aws_iam_policy.credentials_operator_policy.arn
 }
+
+resource "aws_rolesanywhere_profile" "intents-operator" {
+  name           = substr("${var.cluster_name}-otterize-intents-operator-profile", 0, 64)
+  enabled        = true
+  role_arns      = [aws_iam_role.intents_operator_service_account_role.arn]
+  tags = {
+    "otterize/system"      = "true"
+    "otterize/clusterName" = var.cluster_name
+  }
+}
+
+resource "aws_rolesanywhere_profile" "credentials-operator" {
+  name           = substr("${var.cluster_name}-otterize-credentials-operator-profile", 0, 64)
+  enabled        = true
+  role_arns      = [aws_iam_role.credentials_operator_service_account_role.arn]
+  tags = {
+    "otterize/system"      = "true"
+    "otterize/clusterName" = var.cluster_name
+  }
+}
