@@ -8,3 +8,11 @@ terraform {
 
   required_version = ">= 1.2.0"
 }
+
+provider "aws" {
+  region = data.aws_region
+}
+
+provider "kubernetes" {
+  config_path = var.kubernetes_config_path
+}
