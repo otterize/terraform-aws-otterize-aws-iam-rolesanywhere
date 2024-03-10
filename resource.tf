@@ -169,7 +169,9 @@ resource "aws_iam_policy" "credentials_operator_policy" {
             "rolesanywhere:CreateProfile",
             "rolesanywhere:DeleteProfile",
             "rolesanywhere:GetProfile",
-            "rolesanywhere:ListProfiles"
+            "rolesanywhere:ListProfiles",
+            "rolesanywhere:TagResource",
+            "rolesanywhere:UntagResource",
           ],
           "Resource": "*",
           "Effect": "Allow"
